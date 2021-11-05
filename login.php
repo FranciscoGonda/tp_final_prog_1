@@ -7,7 +7,7 @@ if (! isset($_POST['usuario']) || ! isset($_POST['clave'])) {
     $cs = new ControladorSesion();
     $login = $cs->login($_POST['usuario'], $_POST['clave']);
     if ($login[0] === true) {
-        $redirigir = 'home.php';
+        $redirigir = 'listado.php';
     } else {
         $redirigir = 'index.php?mensaje=' . $login[1];
     }

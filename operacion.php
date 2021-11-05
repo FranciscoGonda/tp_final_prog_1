@@ -8,6 +8,7 @@ if (isset($_SESSION['usuario']) && isset($_POST['monto'])) {
     $usuario = unserialize($_SESSION['usuario']);
     $rc = new RepositorioCuenta();
     $cuenta = $rc->get_one($_POST['cuenta']);
+    //verificacion de usuario
     if ($cuenta->getIdUsuario() != $usuario->getId()) {
         die("Error: La cuenta no pertenece al usuario");
     }

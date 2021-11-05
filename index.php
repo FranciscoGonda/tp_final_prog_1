@@ -8,7 +8,7 @@
     </head>
     <body class="container">
       <div class="jumbotron text-center">
-      <h1>Sistema bancario</h1>
+      <h1>Tienda Online</h1>
       </div>    
       <div class="text-center">
         <h3>Login de usuario</h3>

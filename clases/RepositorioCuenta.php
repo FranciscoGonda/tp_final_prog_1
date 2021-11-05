@@ -61,7 +61,9 @@ class RepositorioCuenta extends Repositorio
             if ($query->execute()) {
                 if ($query->fetch()) {
                     $ru = new RepositorioUsuario();
-                    $usuario = $ru->get_one($idUsuario);
+                    $query->close();
+                    $usuario = $ru->get_one($idUsuario); 
+                                   
                     return new Cuenta($usuario, $saldo, $numero);
                 }
             }

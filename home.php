@@ -31,13 +31,15 @@ if (isset($_SESSION['usuario'])) {
             echo '<p class="alert alert-primary">'.$_GET['mensaje'].'</p>';
         }
         ?>
+        
         <h3><?php echo $nomApe;?></h3>
+        <a href="listado.php">Ver listado</a>
+        <br>
         <h3>Listado de cuentas</h3>
         <table class="table table-striped">
             <tr>
                 <th>Número</th><th>Saldo</th><th>Depositar</th><th>Extraer</th><th>Eliminar</th>
-            </tr>
-        <?php
+            </tr>        <?php
         if (count($cuentas) == 0) {
             echo "<tr><td colspan='5'>No tiene cuentas creadas</td></tr>";
         } else {
@@ -65,9 +67,11 @@ if (isset($_SESSION['usuario'])) {
         </div>
         <hr>
         <a class="btn btn-primary" href="crear_cuenta.php">Crear nueva cuenta</a>
-    
+     
         <p><a href="logout.php">Cerrar sesión</a></p>
+        
       </div> 
+      
 <script>
         function operacion() {
             var tipo = document.querySelector('#tipo').value;
@@ -76,7 +80,7 @@ if (isset($_SESSION['usuario'])) {
             var cadena = "tipo="+tipo+"&cuenta="+cuenta+"&monto="+monto;
 
             var solicitud = new XMLHttpRequest();
-
+            
             solicitud.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var respuesta = JSON.parse(this.responseText);
